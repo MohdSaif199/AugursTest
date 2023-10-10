@@ -30,16 +30,16 @@ const UserList = () => {
             <h2>Task 2 Fetch The list of the Users </h2>
             <table style={{ margin: "auto" }}>
                 <tr>
-                    <th>UserId</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>City</th>
+                    <th className='list--head'>UserId</th>
+                    <th className='list--head'>Name</th>
+                    <th className='list--head'>Email</th>
+                    <th className='list--head'>City</th>
                 </tr>
                 {list.map((item: ListI) => <tr key={item.userId}>
-                    <td>{item.userId}</td>
-                    <td>{item.name}</td>
-                    <td>{item.email}</td>
-                    <td>{item.city}</td>
+                    <td className='list--column'>{item.userId}</td>
+                    <td className='list--column'>{item.name}</td>
+                    <td className='list--column'>{item.email}</td>
+                    <td className='list--column'>{item.city}</td>
                 </tr>)}
             </table>
         </div>

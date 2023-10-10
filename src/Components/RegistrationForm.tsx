@@ -59,7 +59,6 @@ const RegistrationForm = () => {
                 tempShowError = true
             }
         }
-        console.log(tempErrorMsg, tempShowError)
         setError({
             errorMsg: tempErrorMsg,
             showError: tempShowError
