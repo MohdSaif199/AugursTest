@@ -3,6 +3,8 @@ import { Button } from 'react-bootstrap'
 
 const Counter = () => {
     const [counter, setCounter] = useState<number>(0)
+
+    // Method for incrementing the counter state by 1
     const increment = () => {
         setCounter(prev => prev + 1)
     }

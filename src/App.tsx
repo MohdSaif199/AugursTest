@@ -8,6 +8,7 @@ import DataFetcher from "./Components/DataFetcher";
 function App() {
 
   return (
+    // Calling all components 
     <div className="App">
       <Counter />
       <hr />

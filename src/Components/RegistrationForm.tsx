@@ -22,8 +22,10 @@ const RegistrationForm = () => {
     })
     const { email, password, userName } = state
     const { errorMsg, showError } = error
+    // Using this regex for email varification
     const EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
+    // Method for validating the data with the help of onBlur
     const errorValidation = (title: string) => {
         let tempErrorMsg = "";
         let tempShowError = false
@@ -100,6 +102,7 @@ const RegistrationForm = () => {
                     })
                 }} onBlur={() => errorValidation("password")} />
 
+                {/* Showing any error in validation */}
                 {showError ? <><br /><h5 style={{ color: "red" }}>{errorMsg}</h5></> : null}
                 <br />
                 <Button type='submit' variant="outline-secondary" onClick={(e) => { e.preventDefault() }}>Submit</Button>

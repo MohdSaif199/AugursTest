@@ -12,6 +12,7 @@ interface StateI {
     data: DataObjI[]
 }
 const DataFetcher = () => {
+    // State for handling states
     const [state, setState] = useState<StateI>({
         loading: false,
         error: false,
@@ -22,7 +23,8 @@ const DataFetcher = () => {
             ...state,
             loading: true
         })
-        fetch("https://jsonplaceholder.typicode.com/todo").then(resp => resp.json()).then(resp => {
+        // Fetching data
+        fetch("https://jsonplaceholder.typicode.com/todos").then(resp => resp.json()).then(resp => {
             let tempArr: DataObjI[] = []
             resp.splice(0,50).forEach((item: any) => {
                 let obj: DataObjI = {
@@ -37,6 +39,7 @@ const DataFetcher = () => {
                 loading: false,
                 error: false
             })
+            // Catching if some error occrred
         }).catch(err => {
             console.log(err)
             setState({
@@ -46,6 +49,7 @@ const DataFetcher = () => {
             })
         })
     }, [])
+    // Destructuring values
     const { data, error, loading } = state
     return (
         <div>

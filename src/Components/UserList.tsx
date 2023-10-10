@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from 'react'
 
+interface ListI {
+    userId: string,
+    name: string,
+    email: string,
+    city: string
+}
 const UserList = () => {
-    const [list, setList] = useState<any>([])
+    const [list, setList] = useState<ListI[]>([])
+
+    // fetching data 
     useEffect(() => {
         fetch("https://jsonplaceholder.typicode.com/users").then(resp => resp.json()).then(resp => {
-            let tempArray: any = []
+            let tempArray: ListI[] = []
             resp.forEach((item: any) => {
-                let obj: any = {
+                let obj: ListI = {
                     userId: item.id,
                     name: item.name,
                     email: item.email,
@@ -27,7 +35,7 @@ const UserList = () => {
                     <th>Email</th>
                     <th>City</th>
                 </tr>
-                {list.map((item: any) => <tr key={item.userId}>
+                {list.map((item: ListI) => <tr key={item.userId}>
                     <td>{item.userId}</td>
                     <td>{item.name}</td>
                     <td>{item.email}</td>
